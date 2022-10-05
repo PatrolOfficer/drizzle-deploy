@@ -1,0 +1,67 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class ="media-body">
+  <div class="aboutus-section">
+                      <div class="aboutus">
+                          <h2 class="aboutus-title">About Us</h2>
+                          <p class="aboutus-text">Drizzle of Thoughts is created by Saurav Tiwari.
+                            This blog page previously went by the name of Drizzle of News.
+                            This page was hosted by Blogspot. You can find the previous website
+                            <a href="https://drizzlesofnews.blogspot.com/"> here.</a></a></p>
+                          <br>
+                          <p class="aboutus-text">Blogs let you speak your mind.
+                            Drizzle Of Thoughts is created for this sole purpose.
+                            Here you can find blogs realted to many topic.</p>
+                            <br>
+                            <br>
+                          <h2 class="aboutus-title">This website was created by Django using:</h2>
+                      </div>
+                          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+                          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                          <script>
+                            var xValues = ["Python", "HTML/CSS", "Others"];
+                            var yValues = [41, 58, 1];
+                            var barColors = [
+                              "#b91d47",
+                              "#00aba9",
+                              "#2b5797",
+                            ];
+                            
+                            new Chart("myChart", {
+                              type: "doughnut",
+                              data: {
+                                labels: xValues,
+                                datasets: [{
+                                  backgroundColor: barColors,
+                                  data: yValues
+                                }]
+                              },
+                              options: {
+                          
+                              }
+                            });
+                            </script>
+  </div>
+    
+            <!-- Team item-->
+      <div class="bg-white rounded shadow-sm py-5 px-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCoxWc5ukrkkaNHBArZt7YJq15_xWWDb4NdQ&usqp=CAU" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Saurav Tiwari</h5><span class="small text-uppercase text-muted">Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://www.facebook.com/StotheTisme" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/StotheTisme" class="social-link"><i class="fa fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="mailto: sauravtiwari9011@gmail.com" class="social-link"><i class="fa fa-google"></i></a></li>
+          <li class="list-inline-item"><a href="https://thumbs.gfycat.com/CanineWebbedErmine-mobile.mp4" class="social-link"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+</div>
+      <!-- End-->
+
+{% endblock content %}
+
+{% block sidebar %}
+
+
+{% endblock sidebar %}

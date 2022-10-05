@@ -1,0 +1,47 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if perms.blog.add_post %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Post Your Work
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+            <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+            <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+        </form>
+    </div>
+{% endif %}
+{% endblock content %}
+
+{% block sidebar %}
+        <div class="content-section">
+          <h3>Sidebar</h3>
+          <p class='text-muted'>Informations
+          <ul class="list-group">
+          <div class ="latest-nav">
+                  <li class="list-group-item list-group-item-light">
+                      <div class="navbar-nav">
+                          <a class="nav-item nav-link" href="{% url 'latest-post' %}" style="text-align:center">
+                              Latest
+                          </a>
+                      </div>
+                  </li>
+                  <li class="list-group-item list-group-item-light">
+                      <a class="nav-item nav-link" href="{% url 'blog-announcements' %}" style="text-align:center">
+                          Announcements
+                      </a>
+                  </li>
+          </div>
+          </ul>
+          </p>
+      </div>
+{% endblock sidebar %}

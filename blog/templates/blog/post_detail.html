@@ -1,0 +1,64 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+                  <small class="text-muted">{{ object.date_posted|date:'F d, Y'}}</small>
+                  {% if object.author == user %}
+                <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                </div>
+              {% endif %}
+              <p>
+                <strong>Tags:</strong>
+                {% for tag in post.tags.all %}
+                    <a class="link-light text-decoration-none badge bg-secondary" style="color: rgb(15, 226, 32);" href="{% url 'post_tag' tag.slug %}">
+                        {{tag.name}}
+                    </a>
+                    {% if not forloop.last %} {% endif %}
+                {% endfor %}
+                
+                <!-- {% if post %} --> <!-- single object, so post_detail -->
+                <!-- {{ post.tags.all }} -->
+                <!-- {% elif posts %} --> <!-- multiple objects, so home -->
+                <!-- {% for post in posts %}
+                    {{ post.tags.all }}
+                {% endfor %}
+            {% endif %} -->
+  
+              </p>
+
+                <h2 class="article-title"> {{ object.title }} </h2>
+                <!-- featured image --> 
+                <img src="{{ post.image.url }}" class="rounded blog-pics-list" alt="post_img">
+                <p class="article-content">{{ object.content | safe }}</p>
+            </div>
+        </article>
+    {% endblock content %}
+
+{% block sidebar %}
+        <div class="content-section">
+          <h3>Sidebar</h3>
+          <p class='text-muted'>Informations
+          <ul class="list-group">
+          <div class ="latest-nav">
+                  <li class="list-group-item list-group-item-light">
+                      <div class="navbar-nav">
+                          <a class="nav-item nav-link" href="{% url 'latest-post' %}" style="text-align:center">
+                              Latest
+                          </a>
+                      </div>
+                  </li>
+                  <li class="list-group-item list-group-item-light">
+                      <a class="nav-item nav-link" href="{% url 'blog-announcements' %}" style="text-align:center">
+                          Announcements
+                      </a>
+                  </li>
+          </div>
+          </ul>
+          </p>
+      </div>
+{% endblock sidebar %}

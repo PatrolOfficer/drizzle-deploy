@@ -1,0 +1,207 @@
+body {
+    background-image: url('blue.jpg');
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h4, h5, h6 {
+    color: #000000;
+  }
+  
+  h1{
+    color: #0c8bd4; /* "Post By *username" (User Profile) */
+  }
+
+  h3{
+    color: #42860a; /* "Our Sidebar" */
+  }
+  h2{
+    color: #ffffff; /* "You have logged out! */
+  }
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: #5f788a;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #060707;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color:#41b101cb;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+    color: #000000
+  }
+  
+  .content-section {
+    background: #000000;
+    padding: 10px 20px;
+    border: 1px solid #ffffff;
+    border-radius: 9px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .article-title {
+    color: #ffffff;
+  }
+  
+  a.article-title:hover {
+    color: #41b101cb;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+    color: #ffffff
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #41b101cb;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+  .mt{float: left;margin-top: -20px;padding-top: 20px;}
+  .bg-blue-ui {
+    background-color: #020202 !important;
+  }
+ 
+  .blog-pics-list{
+    height: 400px;
+    width: 600px;
+    object-fit: contain;
+}
+
+.copyright-center-align{
+  text-align: center;
+  color: #ffffff
+}
+
+
+.content-section .latest-nav .nav-link {
+  color: #060707;
+}
+
+.content-section .latest-nav .nav-link:hover {
+  color:#41b101cb;
+}
+
+/* announcements */
+.bg {
+  height: 100%;
+  /* Center the background image */
+  background-position: center;
+  /* Scale and zoom in the image */
+  background-size: cover;
+  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  position: relative;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: white;
+  /* Add a font */
+  font-family: "Courier New", Courier, monospace;
+  /* Set the font-size to 25 pixels */
+  font-size: 25px;
+}
+
+
+/* Position text in the middle */
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size :50px;
+  color : #ffffff;
+}
+
+/* Style the <hr> element */
+hr {
+  margin: auto;
+  width: 40%;
+}
+
+/* about links */
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+.aboutus-section {
+  padding: 90px 0;
+}
+.aboutus-title {
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 32px;
+  margin: 0 0 39px;
+  padding: 0 0 11px;
+  position: relative;
+  text-transform: uppercase;
+  color: rgb(197, 80, 26);
+}
+.aboutus-title::after {
+  background: #fdb801 none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 54px;
+}
+.aboutus-text {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 auto;
+}

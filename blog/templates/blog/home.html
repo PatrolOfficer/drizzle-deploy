@@ -1,0 +1,86 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+            {% for post in posts %}
+                    <article class="media content-section">
+                        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+                        <div class="media-body">
+                            <div class="article-metadata">
+                            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                            <small class="text-muted">{{ post.date_posted|date:'F d, Y'}}</small>
+                            </div>
+                                <h2> <a class="article-title" href="{% url 'post-detail' post.id %}"> {{ post.title }} </a></h2>
+                            
+                                <a href="{% url 'post-detail' post.id %}">
+                                    <!-- featured image --> 
+                                    <img src="{{ post.image.url }}" class="rounded blog-pics-list" alt="post_img">
+                                </a>
+                                <p class="card-text mb-auto py-2">{{ post.content|safe|striptags|truncatechars:100 }}</p>
+                                <br>
+                                <br>
+                            <div class="mt"> <a href="{% url 'post-detail' post.id %}" tabindex="0" class="btn btn-outline-info mb-4">Read more</a>
+                            </div>
+                        </div>
+                    </article>
+            {% endfor %}
+
+
+            {% if is_paginated %}
+
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                {% endif %}
+        {%  endif %}
+    {% endblock content %}
+{% block sidebar %}
+    <div class="content-section">
+    <h3>Sidebar</h3>
+    <p class='text-muted'>Informations</p>
+    <ul class="list-group">
+    <div class ="latest-nav">
+            <li class="list-group-item list-group-item-light">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'latest-post' %}" style="text-align:center">
+                        Latest
+                    </a>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-light">
+                <a class="nav-item nav-link" href="{% url 'blog-announcements' %}" style="text-align:center">
+                    Announcements
+                </a>
+            </li>
+    </div>
+        <!-- <li class="list-group-item list-group-item-light" style="text-align:center">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tags
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {% for post in posts %}
+                                {% for tag in post.tags.all %}
+                                <a class="dropdown-item" href="{% url 'post_tag' tag.slug %}">
+                                    {{ tag.name }}
+                                </a>
+                                {% endfor %}
+                            {% endfor %} -->
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+    {% endblock sidebar %}
